@@ -1,7 +1,7 @@
 <ion-header>
 
     <ion-navbar>
-        <ion-title>{{selectedRecipe.title}} Recipe Detail</ion-title>
+        <ion-title>{{selectedRecipe.title}}</ion-title>
     </ion-navbar>
 
 </ion-header>
@@ -25,9 +25,9 @@
             <ion-icon name="flask"></ion-icon> Directions:
         </h3>
         <ion-list>
-            <ion-item *ngFor="let step of directions">
-                <span>{{step}}</span>
-            </ion-item>
+            <ion-card *ngFor="let step of directions">
+                <ion-card-content>{{step}}</ion-card-content>
+            </ion-card>
         </ion-list>
     </div>
 

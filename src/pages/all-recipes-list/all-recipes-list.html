@@ -10,7 +10,7 @@
 <ion-content>
     <ion-list>
         <ion-item-group *ngFor="let r of recipesCategories">
-            <ion-item-divider secondary>{{r.categoryName}}</ion-item-divider>
+            <ion-item-divider>{{r.categoryName}}</ion-item-divider>
             <button ion-item *ngFor="let item of r.categoryRecipes" (click)="itemTapped($event, item)">
             <ion-icon [name]="item.icon" item-left></ion-icon>
             {{item.title}}
