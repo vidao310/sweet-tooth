@@ -10,9 +10,8 @@ import { RecipeDetailViewPage } from '../pages';
   templateUrl: 'all-recipes-list.html'
 })
 export class AllRecipesList {
-  recipes = Array();
   selectedItem: any;
-  items: Array<{title: string, note: string, icon: string}>;
+  items: Array<{title: string, note: string, icon: string, category: string, ingredients: Array<{}>, directions: Array<{}>}>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private recipesApi: RecipesApi) {
     this.selectedItem = navParams.get('item');
@@ -24,12 +23,14 @@ export class AllRecipesList {
   }
 
   ionViewDidLoad() {
-  console.log("Using ion View Did Load");
   this.recipesApi.getAllRecipes().subscribe(data => {
     data.body.forEach(element => { this.items.push({
       title: element.title,
       note: element.note,
-      icon: element.icon
+      icon: element.icon,
+      category: element.category,
+      ingredients: element.ingredients,
+      directions: element.directions
     })
   }); 
 });

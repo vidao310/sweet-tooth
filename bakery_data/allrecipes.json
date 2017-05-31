@@ -5,8 +5,8 @@
                 "note": "To try soon!",
                 "icon": "restaurant",
                 "category": "food",
-                "ingredients": ["four", "yeast", "pepperoni", "cheese"],
-                "cooking": "Mix, whip, prep, grill, and eat"
+                "ingredients": ["flour", "yeast", "pepperoni", "cheese"],
+                "directions": ["Step 1: Mix", "Step 2: Whip", "Step 3: Prep", "Step 4: Grill", "And enjoy"]
             },
             {
                 "title": "Dinner roll",
@@ -14,7 +14,7 @@
                 "icon": "restaurant",
                 "category": "food",
                 "ingredients": ["flour", "yeast", "milk", "butter"],
-                "cooking": "Mix, knead, bake, and eat"
+                "directions": ["Step 1: Mix", "Step 2: Knead", "Step 3: Bake", "And enjoy"]
             },
             {
                 "title": "French Macarons",
@@ -22,7 +22,7 @@
                 "icon": "ice-cream",
                 "category": "dessert",
                 "ingredients": ["almon flour", "sugar", "eggs"],
-                "cooking": "Mix, bake, and eat"
+                "directions": ["Step 1: Mix", "Step 2: Bake", "And enjoy"]
             },
             {
                 "title": "Ice-cream",
@@ -30,7 +30,7 @@
                 "icon": "ice-cream",
                 "category": "dessert",
                 "ingredients": ["almon flour", "sugar", "eggs"],
-                "cooking": "Mix, bake, and eat"
+                "directions": ["Step 1: Mix", "Step 2: Freeze", "And enjoy"]
             },
             {
                 "title": "Matcha latte",
@@ -38,7 +38,7 @@
                 "icon": "cafe",
                 "category": "drink",
                 "ingredients": ["almon milk", "matcha powder", "sugar"],
-                "cooking": "Mix, and drink"
+                "directions": ["Step 1: Mix", "And enjoy"]
             }
         ]
     }
