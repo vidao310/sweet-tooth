@@ -2,12 +2,14 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { HttpModule } from '@angular/http';
 
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { HomePage, AllRecipesList, AddNewRecipePage } from '../pages/pages';
+import { RecipesApi } from '../shared/shared';
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers: [RecipesApi, HttpModule]
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
@@ -22,7 +24,8 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'All Recipes', component: ListPage }
+      { title: 'All Recipes', component: AllRecipesList },
+      { title: 'Add New Recipe', component: AddNewRecipePage }
     ];
 
   }
