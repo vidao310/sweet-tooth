@@ -4,7 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule} from '@angular/http';
 
 import { MyApp } from './app.component';
-import { HomePage, AllRecipesList, AddNewRecipePage, RecipeDetailViewPage } from '../pages/pages';
+import { HomePage, AllRecipesList, AddNewRecipePage, RecipeDetailViewPage,CookingDiaryPage } from '../pages/pages';
 import { RecipesApi } from '../shared/shared';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -16,7 +16,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     AllRecipesList,
     AddNewRecipePage,
-    RecipeDetailViewPage
+    RecipeDetailViewPage,
+    CookingDiaryPage
   ],
   imports: [
     BrowserModule,
@@ -29,7 +30,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     AllRecipesList,
     AddNewRecipePage,
-    RecipeDetailViewPage
+    RecipeDetailViewPage,
+    CookingDiaryPage
   ],
   providers: [
     RecipesApi,

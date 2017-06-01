@@ -12,7 +12,6 @@
     <h3>Find Recipe to Add</h3>
     <p>Ingredients, Methods, Results</p>
 
-
     <ion-list>
         <ion-item>
             <ion-label stacked>Name</ion-label>
@@ -30,10 +29,8 @@
             <ion-label stacked>Directions</ion-label>
             <ion-input type="text"></ion-input>
         </ion-item>
-        <button ion-button>
-      <ion-icon name="add"></ion-icon> Add New Recipe
-    </button>
-
     </ion-list>
+
+    <button ion-button full round (click)="addNewRecipeToLibrary()">Add New Recipe</button>
 
 </ion-content>

@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>Cook Book Diary</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card>
+        <!--<ion-card *ng-If="!savedCookingLog">-->
+        <ion-card-header>Oven is cold</ion-card-header>
+        <ion-card-content>
+            <p>No dishes have been served! Time to cook and showcase your passion.</p>
+            <button (click)="addCookingExperiment()">Add My First Experiment</button>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+        <!--<ion-card *ng-If="savedCookingLog">-->
+        <ion-card-header>My Gallery</ion-card-header>
+        <ion-card-content>
+            <p>Practice makes perfect! Failed at the first batch? Try again!</p>
+            <button (click)="addCookingExperiment()">Add Another Attempt</button>
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>

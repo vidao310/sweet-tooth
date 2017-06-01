@@ -14,4 +14,8 @@ export class AddNewRecipePage {
     console.log('ionViewDidLoad AddNewRecipePage');
   }
 
+  addNewRecipeToLibrary() {
+    console.log("Adding new recipe to DB. need POST request here");
+  }
+
 }
