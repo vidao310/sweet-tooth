@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { RecipesApi } from '../../shared/shared';
 
 import { AllRecipesList } from '../pages';
 
@@ -12,7 +13,7 @@ import { Recipe }    from '../../app/recipe';
 export class NewRecipeComponent {
 
 
-constructor(public navCtrl: NavController) {}
+constructor(public navCtrl: NavController, private recipesApi: RecipesApi) {}
 
   categories = ['Foods', 'Desserts', 'Drinks'];
 
@@ -23,6 +24,7 @@ constructor(public navCtrl: NavController) {}
   onSubmit() { 
       this.submitted = true; 
       console.log("Submit the new recipe: "+ this.model.title);
+      this.recipesApi.postNewRecipe(this.model);
       this.navCtrl.push(AllRecipesList);
 }
 

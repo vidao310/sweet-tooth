@@ -30,6 +30,18 @@ export class AllRecipesList {
 
     loader.present().then(() => {
           this.recipesApi.getAllRecipes().subscribe(data => {
+
+          //  _.forEach(data.body, function(element){
+          //     this.items.push({
+          //     title: element.title,
+          //     note: element.note,
+          //     icon: element.icon,
+          //     category: element.category,
+          //     ingredients: element.ingredients,
+          //     directions: element.directions
+          // })
+          //  });
+
           data.body.forEach(element => { this.items.push({
             title: element.title,
             note: element.note,

@@ -8,8 +8,8 @@ import { Camera } from '@ionic-native/camera';
 import { SQLite } from '@ionic-native/sqlite';
 
 import { MyApp } from './app.component';
-import { HomePage, AllRecipesList, AddNewRecipePage, NewRecipeComponent ,RecipeDetailViewPage,CookingDiaryPage } from '../pages/pages';
-import { RecipesApi } from '../shared/shared';
+import { HomePage, AllRecipesList, AddNewRecipePage, NewRecipeComponent ,RecipeDetailViewPage,CookingDiaryPage, LoginPage, ResetPasswordPage, SignupPage, LogoutPage } from '../pages/pages';
+import { RecipesApi, AuthData } from '../shared/shared';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -22,7 +22,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AddNewRecipePage,
     NewRecipeComponent,
     RecipeDetailViewPage,
-    CookingDiaryPage
+    CookingDiaryPage,
+    LoginPage,
+    ResetPasswordPage,
+    SignupPage,
+    LogoutPage
+
   ],
   imports: [
     BrowserModule,
@@ -38,12 +43,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AddNewRecipePage,
     NewRecipeComponent,
     RecipeDetailViewPage,
-    CookingDiaryPage
+    CookingDiaryPage,
+    LoginPage,
+    ResetPasswordPage,
+    SignupPage,
+    LogoutPage
   ],
   providers: [
     Camera,
     SQLite,
     RecipesApi,
+    AuthData,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

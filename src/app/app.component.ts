@@ -1,10 +1,11 @@
-import { Component, ViewChild } from '@angular/core';
+import firebase from 'firebase';
+import { Component, ViewChild, NgZone } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from '@angular/http';
 
-import { HomePage, AllRecipesList, AddNewRecipePage, NewRecipeComponent,CookingDiaryPage } from '../pages/pages';
+import { HomePage, AllRecipesList, AddNewRecipePage, NewRecipeComponent,CookingDiaryPage, LoginPage, LogoutPage } from '../pages/pages';
 import { RecipesApi } from '../shared/shared';
 
 @Component({
@@ -14,12 +15,39 @@ import { RecipesApi } from '../shared/shared';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  //rootPage: any = HomePage;
+  rootPage: any;
+  zone:NgZone;
 
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
+    this.zone = new NgZone({});
+
+    firebase.initializeApp({
+    apiKey: "AIzaSyByNkLFGRpkwdJF9ncmv2NaRDZynrqSkUg",
+    authDomain: "sweeth-tooth.firebaseapp.com",
+    databaseURL: "https://sweeth-tooth.firebaseio.com",
+    projectId: "sweeth-tooth",
+    storageBucket: "sweeth-tooth.appspot.com",
+    messagingSenderId: "1042021337617"
+  });
+
+  const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+  this.zone.run( () => {
+    if (!user) {
+      this.rootPage = LoginPage;
+      unsubscribe();
+    } else { 
+      this.rootPage = HomePage;
+      unsubscribe();
+    }
+  });     
+});
+
+
+
 
     // used for an example of ngFor and navigation
     this.pages = [
@@ -27,7 +55,9 @@ export class MyApp {
       { title: 'All Recipes', component: AllRecipesList },
       { title: 'Add New Recipe', component: AddNewRecipePage },
       { title: 'New Recipe Form', component: NewRecipeComponent },
-      { title: 'Cooking Diary', component: CookingDiaryPage}
+      { title: 'Cooking Diary', component: CookingDiaryPage},
+      { title: 'Log Out', component: LogoutPage}
+
     ];
 
   }
