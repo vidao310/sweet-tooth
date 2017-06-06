@@ -9,10 +9,52 @@
 
 
 <ion-content padding>
-    <h3>Find Recipe to Add</h3>
-    <p>Ingredients, Methods, Results</p>
+    <h3>Add Recipe Details</h3>
+    <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+        <div class="form-group">
+            <ion-label>Recipe Name</ion-label>
+            <ion-input type="text" formControlName="name"></ion-input>
+        </div>
 
-    <form (ngSubmit)="onSubmit()" #recipeForm="ngForm">
+        <h4>Add Ingredients</h4>
+
+        <!-- list of addresses -->
+        <div formArrayName="addresses">
+            <ion-list inset *ngFor="let address of myForm.controls.addresses.controls; let i=index">
+                <!-- address header, show remove button when more than one address available -->
+                <!--<div>
+                    <span>{{i + 1}}</span>
+                    <span *ngIf="myForm.controls.addresses.controls.length > 1" (click)="removeAddress(i)"></span>
+                </div>-->
+
+                <!-- Angular assigns array index as group name by default 0, 1, 2, ... -->
+
+                <div [formGroupName]="i">
+                    <div>
+                        <ion-input type="text" formControlName="postcode" placeholder="ingredient name"></ion-input>
+                    </div>
+                </div>
+            </ion-list>
+        </div>
+
+
+
+        <div class="margin-20">
+            <a (click)="addAddress()" style="cursor: default">
+            Add another ingredient +
+          </a>
+        </div>
+        <button type="submit" [disabled]="!myForm.valid">Submit</button>
+    </form>
+
+
+
+</ion-content>
+
+
+
+
+<!--<form (ngSubmit)="onSubmit()" #recipeForm="ngForm">
         <ion-list>
             <ion-item>
                 <ion-label stacked for="title">Recipe Title:</ion-label>
@@ -41,7 +83,4 @@
         <button ion-button type="button" (click)="recipeForm.reset()">Reset</button>
 
         <button ion-button type="submit">Submit</button>
-    </form>
-
-
-</ion-content>
+    </form>-->

@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule} from '@angular/http';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+
 
 import { Camera } from '@ionic-native/camera';
 import { SQLite } from '@ionic-native/sqlite';
@@ -32,6 +33,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     IonicModule.forRoot(MyApp),
     HttpModule
   ],
