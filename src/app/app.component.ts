@@ -5,7 +5,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from '@angular/http';
 
-import { HomePage, AllRecipesList, AddNewRecipePage, NewRecipeComponent,CookingDiaryPage, LoginPage, LogoutPage } from '../pages/pages';
+import { HomePage, AllRecipesList, AddNewRecipePage,CookingDiaryPage, LoginPage, LogoutPage } from '../pages/pages';
 import { RecipesApi } from '../shared/shared';
 
 @Component({
@@ -54,7 +54,6 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'All Recipes', component: AllRecipesList },
       { title: 'Add New Recipe', component: AddNewRecipePage },
-      { title: 'New Recipe Form', component: NewRecipeComponent },
       { title: 'Cooking Diary', component: CookingDiaryPage},
       { title: 'Log Out', component: LogoutPage}
 

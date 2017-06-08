@@ -9,38 +9,34 @@
 
 
 <ion-content padding>
-    <h3>Find Recipe to Add</h3>
-    <p>Ingredients, Methods, Results</p>
-
     <form (ngSubmit)="onSubmit()" #recipeForm="ngForm">
+        <h3>Recipe Detail:</h3>
         <ion-list>
             <ion-item>
-                <ion-label stacked for="title">Recipe Title:</ion-label>
+                <ion-label>Name</ion-label>
                 <ion-input type="text" id="title" required [(ngModel)]="model.title" name="title"></ion-input>
             </ion-item>
             <ion-item>
-                <ion-label stacked for="note">Note:</ion-label>
+                <ion-label>Note</ion-label>
                 <ion-input type="text" id="note" [(ngModel)]="model.note" name="note"></ion-input>
             </ion-item>
             <ion-item>
-                <ion-label stacked for="category">Category:</ion-label>
-                <ion-select id="category" required [(ngModel)]="model.category" name="category">
-                    <ion-option *ngFor="let categ of categories" [value]="categ">{{categ}}</ion-option>
+                <ion-label>Category</ion-label>
+                <ion-select interface="popover" id="category" required [(ngModel)]="model.category" name="category" placeholder="Select">
+                    <ion-option *ngFor="let categ of categories " [value]="categ ">{{categ}}</ion-option>
                 </ion-select>
-            </ion-item>
-            <ion-item>
-                <ion-label stacked for="ingredients">Ingredients:</ion-label>
-                <ion-input type="text" id="ingredients" [(ngModel)]="model.ingredients" name="ingredients"></ion-input>
-            </ion-item>
-            <ion-item>
-                <ion-label stacked for="directions">Directions:</ion-label>
-                <ion-input type="text" id="directions" [(ngModel)]="model.directions" name="directions"></ion-input>
             </ion-item>
         </ion-list>
 
-        <button ion-button type="button" (click)="recipeForm.reset()">Reset</button>
+        <h3>Ingredients:</h3>
+        <ion-textarea rows="4" class="text-box" type="text " id="ingredients" [(ngModel)]="model.ingredients" name="ingredients" placeholder="Add ingredients"></ion-textarea>
 
-        <button ion-button type="submit">Submit</button>
+        <h3>Directions:</h3>
+        <ion-textarea rows="4" class="text-box" type="text " id="directions" [(ngModel)]="model.directions" name="directions" placeholder="Add steps"></ion-textarea>
+
+        <button ion-button type="button " (click)="recipeForm.reset() ">Reset</button>
+
+        <button ion-button type="submit ">Submit</button>
     </form>
 
 

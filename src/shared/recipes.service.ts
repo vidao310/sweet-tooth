@@ -3,6 +3,8 @@ import { Http, Response } from '@angular/http';
 import 'rxjs/Rx';
 import { Observable } from '../../node_modules/rxjs/Observable.js';
 import { Recipe } from './../app/recipe';
+import firebase from 'firebase';
+
 
 
 @Injectable()
@@ -33,9 +35,13 @@ export class RecipesApi{
                 "icon": recipe.icon,
                 "category": recipe.category,
                 "ingredients": recipe.ingredients,
-                "directions": recipe.directions
+                "directions": recipe.directions,
+                "author": recipe.author
             };
 
-        this.http.post(this.baseUrl+'/recipes.json', recipeJson);
+        var database = firebase.database();
+        var ref = database.ref('/recipes/body');
+        ref.push().set(recipeJson);       
+        console.log('Posted request to DB '+recipeJson);
     }
 }       

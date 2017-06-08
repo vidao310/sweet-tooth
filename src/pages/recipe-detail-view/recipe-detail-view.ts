@@ -1,3 +1,4 @@
+import firebase from 'firebase';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -10,6 +11,8 @@ export class RecipeDetailViewPage {
   selectedRecipe: any;
   ingredients: any;
   directions: any;
+  recipeAuthor: false;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.selectedRecipe = this.navParams.data;
     this.ingredients = this.selectedRecipe.ingredients;

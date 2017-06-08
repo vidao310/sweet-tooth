@@ -26,5 +26,8 @@ logoutUser(): firebase.Promise<void> {
   return firebase.auth().signOut();
 }
 
+getCurrentUser() {
+    return firebase.auth().currentUser;
+}
 
 }

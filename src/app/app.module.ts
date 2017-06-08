@@ -4,12 +4,11 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule} from '@angular/http';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 
-
 import { Camera } from '@ionic-native/camera';
 import { SQLite } from '@ionic-native/sqlite';
 
 import { MyApp } from './app.component';
-import { HomePage, AllRecipesList, AddNewRecipePage, NewRecipeComponent ,RecipeDetailViewPage,CookingDiaryPage, LoginPage, ResetPasswordPage, SignupPage, LogoutPage } from '../pages/pages';
+import { HomePage, AllRecipesList, AddNewRecipePage,RecipeDetailViewPage,CookingDiaryPage, LoginPage, ResetPasswordPage, SignupPage, LogoutPage } from '../pages/pages';
 import { RecipesApi, AuthData } from '../shared/shared';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -21,7 +20,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     AllRecipesList,
     AddNewRecipePage,
-    NewRecipeComponent,
     RecipeDetailViewPage,
     CookingDiaryPage,
     LoginPage,
@@ -43,7 +41,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     AllRecipesList,
     AddNewRecipePage,
-    NewRecipeComponent,
     RecipeDetailViewPage,
     CookingDiaryPage,
     LoginPage,
