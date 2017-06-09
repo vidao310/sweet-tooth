@@ -10,7 +10,7 @@ import * as _ from 'lodash';
 })
 export class AllRecipesList {
   selectedItem: any;
-  items: Array<{title: string, note: string, icon: string, category: string, ingredients: Array<{}>, directions: Array<{}>}>;
+  items: any;
   recipesCategories: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingController: LoadingController, private recipesApi: RecipesApi) {
@@ -37,9 +37,14 @@ export class AllRecipesList {
               icon: data[i].icon,
               category: data[i].category,
               ingredients: data[i].ingredients,
-              directions: data[i].directions
+              directions: data[i].directions,
+              author: data[i].author
+              
             })
+
+            console.log('Getting API data author '+ data[i].author);
           };
+
         this.recipesCategories = _.chain(this.items).groupBy('category').toPairs().map(item => _.zipObject(['categoryName', 'categoryRecipes'], item )).value();
         loader.dismiss(); 
       });

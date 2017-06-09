@@ -5,7 +5,7 @@ import { RecipesApi } from '../../shared/shared';
 import { RecipeDetailViewPage } from '../pages';
 import { AuthData } from '../../shared/shared'
 
-import { Recipe }    from '../../app/recipe';
+import { Recipe }    from '../../shared/recipe';
 
 @Component({
   selector: 'page-add-new-recipe',
@@ -28,8 +28,8 @@ constructor(public navCtrl: NavController, private recipesApi: RecipesApi, priva
       this.model.ingredients = this.convertToArray(this.model.ingredients);
       this.model.directions = this.convertToArray(this.model.directions);
       this.model.author = this.authorize.getCurrentUser().uid;
+      this.assignIconToCategory();
       this.recipesApi.postNewRecipe(this.model);
-
       this.navCtrl.push(RecipeDetailViewPage, this.model);
   }
 
@@ -41,6 +41,21 @@ constructor(public navCtrl: NavController, private recipesApi: RecipesApi, priva
       lines = stringText;
     }
     return lines;
+  }
+
+  assignIconToCategory() {
+    if(this.model.category = 'Foods'){
+      this.model.icon = 'restaurant';
+    }
+    else if(this.model.category = 'Drinks'){
+      this.model.icon = 'cafe';
+    }
+    else if(this.model.category = 'Desserts'){
+      this.model.icon = 'ice-cream';
+    }
+    else {
+      this.model.icon = 'star';
+    }
   }
 
 }

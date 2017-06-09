@@ -6,6 +6,7 @@ export class Recipe {
     public category: string,
     public ingredients: Array<string>,
     public directions: Array<string>,
-    public author?: string
+    public author: string,
+    public recipeKey?: string
   ) {  }
 }

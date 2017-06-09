@@ -2,25 +2,36 @@
 
     <ion-navbar>
         <ion-title>{{selectedRecipe.title}}</ion-title>
-        <button *ngIf="recipeAuthor()" ion-button color="primary" icon-left (click)="editContact(contact)">
-          <ion-icon name="ios-create"></ion-icon>
-          Edit
-        </button>
-        <button *ngIf="recipeAuthor()" ion-button color="danger" icon-left (click)="deleteContact(contact)">
-          <ion-icon name="ios-trash"></ion-icon>
-          Delete
-        </button>
     </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
+    <ion-fab top right edge>
+        <button ion-fab mini><ion-icon name="more"></ion-icon></button>
+        <ion-fab-list>
+            <button ion-fab (click)="favoriteRecipe()"><ion-icon name="heart"></ion-icon></button>
+            <button ion-fab *ngIf="checkRecipeAuthor()" (click)="editRecipe()"><ion-icon name="create"></ion-icon></button>
+            <button ion-fab *ngIf="checkRecipeAuthor()" (click)="deleteRecipe()"><ion-icon name="trash"></ion-icon></button>
+        </ion-fab-list>
+    </ion-fab>
+
+
     <div class="ingredients">
+        <h5>Shared by:</h5>
+        <div>{{selectedRecipe.author}}</div>
+        <h5>Note:</h5>
+        <div>{{selectedRecipe.note}}</div>
+        <h5>Category:</h5>
+        <div>
+            <ion-icon [name]="icon"></ion-icon>{{selectedRecipe.category}}</div>
+
+
         <h3>
             <ion-icon name="nutrition"></ion-icon> Ingredients:
         </h3>
         <ion-list>
-            <ion-item *ngFor="let item of ingredients">
+            <ion-item *ngFor="let item of selectedRecipe.ingredients">
                 <ion-label>{{item}}</ion-label>
                 <ion-checkbox checked="false"></ion-checkbox>
             </ion-item>
@@ -32,7 +43,7 @@
             <ion-icon name="flask"></ion-icon> Directions:
         </h3>
         <ion-list>
-            <ion-card *ngFor="let step of directions">
+            <ion-card *ngFor="let step of selectedRecipe.directions">
                 <ion-card-content>{{step}}</ion-card-content>
             </ion-card>
         </ion-list>

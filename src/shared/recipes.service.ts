@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/Rx';
 import { Observable } from '../../node_modules/rxjs/Observable.js';
-import { Recipe } from './../app/recipe';
+import { Recipe } from './recipe';
 import firebase from 'firebase';
 
 
@@ -22,7 +22,6 @@ export class RecipesApi{
                     resultList.push(obj);
                 }
             }
-            console.log('ResultList '+resultList.toString());
             return resultList;
         })
     }
@@ -39,7 +38,9 @@ export class RecipesApi{
             };
 
         var ref = firebase.database().ref('/recipes');
-        ref.push().set(recipeJson);       
+        ref.push().then((snap) => {
+        ref.child(snap.key).set(recipeJson);
+  })
         console.log('Posted request to DB '+recipeJson);
     }
 }       

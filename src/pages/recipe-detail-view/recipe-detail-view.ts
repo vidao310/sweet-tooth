@@ -9,24 +9,31 @@ import { AuthData } from '../../shared/shared'
 export class RecipeDetailViewPage {
 
   selectedRecipe: any;
-  ingredients: any;
-  directions: any;
-
+  
   constructor(public navCtrl: NavController, public navParams: NavParams, private authorize: AuthData) {
     this.selectedRecipe = this.navParams.data;
-    this.ingredients = this.selectedRecipe.ingredients;
-    this.directions = this.selectedRecipe.directions;
 }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RecipeDetailViewPage');
   }
 
-  recipeAuthor() {
-    if(this.selectedRecipe.author = this.authorize.getCurrentUser().uid) {
+  checkRecipeAuthor() {
+    if (this.selectedRecipe.author === this.authorize.getCurrentUser().uid) {
       return true;
     }
     else { return false; }
+  }
+
+  favoriteRecipe() {
+    console.log('TODO Favorite recipe');
+  }
+  editRecipe() {
+    console.log('TODO edit recipe screen');
+  }
+
+  deleteRecipe() {
+    console.log('TODO delte recipe');
   }
 
 }
