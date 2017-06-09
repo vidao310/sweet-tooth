@@ -2,17 +2,15 @@
 
     <ion-navbar>
         <ion-title>{{selectedRecipe.title}}</ion-title>
-    </ion-navbar>
-
-
-    <button ion-button color="primary" icon-left (click)="editContact(contact)">
+        <button *ngIf="recipeAuthor()" ion-button color="primary" icon-left (click)="editContact(contact)">
           <ion-icon name="ios-create"></ion-icon>
           Edit
         </button>
-    <button ion-button color="danger" icon-left (click)="deleteContact(contact)">
+        <button *ngIf="recipeAuthor()" ion-button color="danger" icon-left (click)="deleteContact(contact)">
           <ion-icon name="ios-trash"></ion-icon>
           Delete
         </button>
+    </ion-navbar>
 </ion-header>
 
 

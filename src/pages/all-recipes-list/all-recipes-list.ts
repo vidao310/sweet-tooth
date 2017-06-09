@@ -29,32 +29,18 @@ export class AllRecipesList {
     });
 
     loader.present().then(() => {
-          this.recipesApi.getAllRecipes().subscribe(data => {
-
-          //  _.forEach(data.body, function(element){
-          //     this.items.push({
-          //     title: element.title,
-          //     note: element.note,
-          //     icon: element.icon,
-          //     category: element.category,
-          //     ingredients: element.ingredients,
-          //     directions: element.directions
-          // })
-          //  });
-
-          data.body.forEach(element => { this.items.push({
-            title: element.title,
-            note: element.note,
-            icon: element.icon,
-            category: element.category,
-            ingredients: element.ingredients,
-            directions: element.directions
-          })
-        });
-
+        this.recipesApi.getAllRecipes().subscribe(data => {
+          for (var i = 0; i < data.length; i++){
+              this.items.push({
+              title: data[i].title,
+              note: data[i].note,
+              icon: data[i].icon,
+              category: data[i].category,
+              ingredients: data[i].ingredients,
+              directions: data[i].directions
+            })
+          };
         this.recipesCategories = _.chain(this.items).groupBy('category').toPairs().map(item => _.zipObject(['categoryName', 'categoryRecipes'], item )).value();
-        console.log(this.recipesCategories);
-
         loader.dismiss(); 
       });
     })

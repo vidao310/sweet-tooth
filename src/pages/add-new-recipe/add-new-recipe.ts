@@ -34,7 +34,12 @@ constructor(public navCtrl: NavController, private recipesApi: RecipesApi, priva
   }
 
   convertToArray(stringText) {
-    var lines = stringText.split("\n");
+    var lines;  
+    if(stringText != ''){
+      lines = stringText.split("\n");
+    } else {
+      lines = stringText;
+    }
     return lines;
   }
 
