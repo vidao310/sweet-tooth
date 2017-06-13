@@ -8,7 +8,7 @@ import { Camera } from '@ionic-native/camera';
 import { SQLite } from '@ionic-native/sqlite';
 
 import { MyApp } from './app.component';
-import { HomePage, AllRecipesList, AddNewRecipePage,RecipeDetailViewPage,CookingDiaryPage, LoginPage, ResetPasswordPage, SignupPage, LogoutPage } from '../pages/pages';
+import { HomePage, AllRecipesList, AddNewRecipePage,RecipeDetailViewPage, EditRecipePage ,CookingDiaryPage, LoginPage, ResetPasswordPage, SignupPage, LogoutPage } from '../pages/pages';
 import { RecipesApi, AuthData } from '../shared/shared';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -21,6 +21,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AllRecipesList,
     AddNewRecipePage,
     RecipeDetailViewPage,
+    EditRecipePage,
     CookingDiaryPage,
     LoginPage,
     ResetPasswordPage,
@@ -42,6 +43,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AllRecipesList,
     AddNewRecipePage,
     RecipeDetailViewPage,
+    EditRecipePage,
     CookingDiaryPage,
     LoginPage,
     ResetPasswordPage,

@@ -38,7 +38,8 @@ export class AllRecipesList {
               category: data[i].category,
               ingredients: data[i].ingredients,
               directions: data[i].directions,
-              author: data[i].author
+              author: data[i].author,
+              recipeKey: data[i].recipeKey
               
             })
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ViewController } from 'ionic-angular';
 import { AuthData } from '../../shared/shared'
+import { EditRecipePage } from '../pages';
 
 @Component({
   selector: 'page-recipe-detail-view',
@@ -10,7 +11,7 @@ export class RecipeDetailViewPage {
 
   selectedRecipe: any;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, private authorize: AuthData) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, private authorize: AuthData) {
     this.selectedRecipe = this.navParams.data;
 }
 
@@ -30,6 +31,13 @@ export class RecipeDetailViewPage {
   }
   editRecipe() {
     console.log('TODO edit recipe screen');
+    console.log(this.selectedRecipe);
+    console.log(this.selectedRecipe.recipeKey);
+    this.navCtrl.push(EditRecipePage, this.selectedRecipe).then(() => {
+        const index = this.viewCtrl.index;
+        this.navCtrl.remove(index);
+      });
+  
   }
 
   deleteRecipe() {

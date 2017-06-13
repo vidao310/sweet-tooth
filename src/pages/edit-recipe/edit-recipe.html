@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title>Edit Recipe</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <form (ngSubmit)="onSubmit()" #recipeForm="ngForm">
+        <h3>Recipe Detail:</h3>
+        <ion-list>
+            <ion-item>
+                <ion-label>Name</ion-label>
+                <ion-input type="text" id="title" required [(ngModel)]="model.title" name="title"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Note</ion-label>
+                <ion-input type="text" id="note" [(ngModel)]="model.note" name="note"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Category</ion-label>
+                <ion-select interface="popover" id="category" required [(ngModel)]="model.category" name="category">
+                    <ion-option *ngFor="let categ of categories " [value]="categ ">{{categ}}</ion-option>
+                </ion-select>
+            </ion-item>
+        </ion-list>
+
+        <h3>Ingredients:</h3>
+        <ion-textarea rows="4" class="text-box" type="text " id="ingredients" [(ngModel)]="model.ingredients" name="ingredients" placeholder="Add ingredients"></ion-textarea>
+
+        <h3>Directions:</h3>
+        <ion-textarea rows="4" class="text-box" type="text " id="directions" [(ngModel)]="model.directions" name="directions" placeholder="Add steps"></ion-textarea>
+
+        <button ion-button type="button " (click)="recipeForm.reset() ">Reset</button>
+
+        <button ion-button type="submit ">Submit</button>
+    </form>
+
+
+</ion-content>

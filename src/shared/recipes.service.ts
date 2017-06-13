@@ -19,6 +19,7 @@ export class RecipesApi{
             for (var key in response.json()) {
                 if (response.json().hasOwnProperty(key)) {
                     var obj = response.json()[key];
+                    obj.recipeKey = key;
                     resultList.push(obj);
                 }
             }
@@ -41,6 +42,22 @@ export class RecipesApi{
         ref.push().then((snap) => {
         ref.child(snap.key).set(recipeJson);
   })
-        console.log('Posted request to DB '+recipeJson);
+    }
+
+
+    editRecipe(recipe: Recipe){
+        let recipeJson = {
+                "title": recipe.title,
+                "note": recipe.note,
+                "icon": recipe.icon,
+                "category": recipe.category,
+                "ingredients": recipe.ingredients,
+                "directions": recipe.directions
+            };
+
+        // var updates = {};
+        //updates['/recipes/' + recipe.recipeKey] = recipeJson;
+        console.log('Recipe Category when Edit Api Debug '+recipe.category);
+        return firebase.database().ref('/recipes/'+recipe.recipeKey).update(recipeJson);
     }
 }       
