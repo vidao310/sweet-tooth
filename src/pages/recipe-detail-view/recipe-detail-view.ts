@@ -33,10 +33,7 @@ export class RecipeDetailViewPage {
     console.log('TODO edit recipe screen');
     console.log(this.selectedRecipe);
     console.log(this.selectedRecipe.recipeKey);
-    this.navCtrl.push(EditRecipePage, this.selectedRecipe).then(() => {
-        const index = this.viewCtrl.index;
-        this.navCtrl.remove(index);
-      });
+    this.navCtrl.push(EditRecipePage, this.selectedRecipe);
   
   }
 
