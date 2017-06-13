@@ -42,7 +42,13 @@ constructor(public navCtrl: NavController, public navPam: NavParams, public view
       this.model.author = this.authorize.getCurrentUser().uid;
       this.assignIconToCategory();
       this.recipesApi.editRecipe(this.model);
-      this.navCtrl.push(RecipeDetailViewPage, this.model);
+      this.navCtrl.push(RecipeDetailViewPage, this.model).then(() => {
+        // first we find the index of the current view controller:
+        const index = this.viewCtrl.index;
+        // then we remove it from the navigation stack
+        this.navCtrl.remove(index);
+        this.navCtrl.remove(index-1);
+      });
   }
 
   convertToArray(stringText) {
