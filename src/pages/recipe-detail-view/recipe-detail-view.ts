@@ -10,9 +10,13 @@ import { EditRecipePage, AllRecipesList } from '../pages';
 export class RecipeDetailViewPage {
 
   selectedRecipe: any;
+  favorite: any;
+  favoriteIcon: any;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, private authorize: AuthData, private recipeApi: RecipesApi, private sqlite: SqliteService) {
     this.selectedRecipe = this.navParams.data;
+    this.favorite = true;
+    this.favoriteIcon = "heart";
 }
 
   ionViewDidLoad() {
@@ -31,6 +35,22 @@ export class RecipeDetailViewPage {
     else { return false; }
   }
 
+  toggleFavorites() {
+    if(this.favorite) {
+      console.log('Changing from Favorite to Unfavorite');
+      this.favorite = false;
+      this.favoriteIcon = "heart-outline";
+      //TODO unfavoriteRecipe()
+    }
+    else
+    {
+      console.log('Changing from UNFavorite to Favorite');
+      this.favorite = true;
+      this.favoriteIcon = "heart";
+      //TODO favoriteRecipe()
+    }
+  }
+
   favoriteRecipe() {
     console.log('TODO Favorite recipe');
     this.sqlite.addToFavoriteTable(this.selectedRecipe.recipeKey);
@@ -41,7 +61,7 @@ export class RecipeDetailViewPage {
     this.sqlite.removeFromFavoriteTable(this.selectedRecipe.recipeKey);
   }
 
-  favorited(){
+  checkFavorite(){
     return false; //TODO
   }
 
