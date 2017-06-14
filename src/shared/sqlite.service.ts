@@ -58,6 +58,26 @@ export class SqliteService {
         .catch(e => console.log(e));
     }
 
+    checkIfExistFavorites(recipeKeyValue) {
+        var result;
+        this.sqlite.create({
+        name: 'sweettooth.db',
+        location: 'default'
+        })
+        .then((db: SQLiteObject) => {
+            var sql = "Select Count(*) from Favorites WHERE RecipeKey='"+recipeKeyValue+"'";
+            db.open();
+            db.executeSql(sql, {})
+            .then(data => { console.log('Finding count of Select query is '+data);
+                            result = data;    })
+           // .then(() => console.log('Executed Delete from SQL Key '+recipeKeyValue))
+            .catch(e => console.log(e));
+            })
+        .catch(e => console.log(e));
+
+        return result;
+    }
+
 
     closeDB() {
         this.sqlite.create({

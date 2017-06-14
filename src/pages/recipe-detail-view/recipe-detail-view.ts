@@ -15,8 +15,9 @@ export class RecipeDetailViewPage {
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, private authorize: AuthData, private recipeApi: RecipesApi, private sqlite: SqliteService) {
     this.selectedRecipe = this.navParams.data;
-    this.favorite = true;
-    this.favoriteIcon = "heart";
+    this.checkFavorite();
+    // this.favorite = true;
+    // this.favoriteIcon = "heart";
 }
 
   ionViewDidLoad() {
@@ -40,14 +41,14 @@ export class RecipeDetailViewPage {
       console.log('Changing from Favorite to Unfavorite');
       this.favorite = false;
       this.favoriteIcon = "heart-outline";
-      //TODO unfavoriteRecipe()
+      this.unfavoriteRecipe();
     }
     else
     {
       console.log('Changing from UNFavorite to Favorite');
       this.favorite = true;
       this.favoriteIcon = "heart";
-      //TODO favoriteRecipe()
+      this.favoriteRecipe();
     }
   }
 
@@ -62,7 +63,14 @@ export class RecipeDetailViewPage {
   }
 
   checkFavorite(){
-    return false; //TODO
+    console.log('Check if Favorite exist');
+    var count = this.sqlite.checkIfExistFavorites(this.selectedRecipe.recipeKey); //THIS NOT RETURNING NUM yet FIX
+    if(count === 1) { 
+      this.favorite = true;
+      this.favoriteIcon = "heart"; }
+    else { 
+      this.favorite = false;
+      this.favoriteIcon ="heart-outline"; }
   }
 
   editRecipe() {
