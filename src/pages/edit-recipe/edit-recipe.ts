@@ -58,8 +58,19 @@ constructor(public navCtrl: NavController, public navPam: NavParams, public view
     } else {
       lines = stringText;
     }
+    lines = this.cleanArray(lines);
     return lines;
   }
+
+  cleanArray(actual) {
+  var newArray = new Array();
+  for (var i = 0; i < actual.length; i++) {
+    if (actual[i]) {
+      newArray.push(actual[i]);
+    }
+  }
+  return newArray;
+}
 
   convertToLines(arrayText) {
     return arrayText.join("\n");

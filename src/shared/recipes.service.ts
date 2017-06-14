@@ -54,10 +54,10 @@ export class RecipesApi{
                 "ingredients": recipe.ingredients,
                 "directions": recipe.directions
             };
-
-        // var updates = {};
-        //updates['/recipes/' + recipe.recipeKey] = recipeJson;
-        console.log('Recipe Category when Edit Api Debug '+recipe.category);
         return firebase.database().ref('/recipes/'+recipe.recipeKey).update(recipeJson);
+    }
+
+    deleteRecipe(recipe: Recipe){
+        return firebase.database().ref('/recipes/'+recipe.recipeKey).remove();
     }
 }       

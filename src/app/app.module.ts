@@ -9,7 +9,7 @@ import { SQLite } from '@ionic-native/sqlite';
 
 import { MyApp } from './app.component';
 import { HomePage, AllRecipesList, AddNewRecipePage,RecipeDetailViewPage, EditRecipePage ,CookingDiaryPage, LoginPage, ResetPasswordPage, SignupPage, LogoutPage } from '../pages/pages';
-import { RecipesApi, AuthData } from '../shared/shared';
+import { RecipesApi, AuthData, SqliteService } from '../shared/shared';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -54,6 +54,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     Camera,
     SQLite,
     RecipesApi,
+    SqliteService,
     AuthData,
     StatusBar,
     SplashScreen,
