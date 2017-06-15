@@ -64,11 +64,14 @@ export class RecipeDetailViewPage {
 
   checkFavorite(){
     console.log('Check if Favorite exist');
-    var count = this.sqlite.checkIfExistFavorites(this.selectedRecipe.recipeKey); //THIS NOT RETURNING NUM yet FIX
-    if(count === 1) { 
+    var count = this.sqlite.checkIfExistFavorites(this.selectedRecipe.recipeKey);
+    //Unreachable code ?????
+    if(count > 0) { 
+      console.log('Checking if Favorite >0');
       this.favorite = true;
       this.favoriteIcon = "heart"; }
     else { 
+      console.log('Checking if Favorite not greather than 0');
       this.favorite = false;
       this.favoriteIcon ="heart-outline"; }
   }

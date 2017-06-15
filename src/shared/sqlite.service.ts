@@ -68,8 +68,8 @@ export class SqliteService {
             var sql = "Select Count(*) from Favorites WHERE RecipeKey='"+recipeKeyValue+"'";
             db.open();
             db.executeSql(sql, {})
-            .then(data => { console.log('Finding count of Select query is '+data);
-                            result = data;    })
+            .then(function(data) { console.log('Finding count of Select query is ' + data.rows.item(0)['Count(*)']);
+                            result = parseInt(data.rows.item(0)['Count(*)']);    })
            // .then(() => console.log('Executed Delete from SQL Key '+recipeKeyValue))
             .catch(e => console.log(e));
             })
