@@ -39,11 +39,10 @@ export class RecipesApi{
             };
 
         var ref = firebase.database().ref('/recipes');
-        ref.push().then((snap) => {
-        ref.child(snap.key).set(recipeJson);
-  })
+        var newKey = ref.push().key;
+        ref.child(newKey).set(recipeJson);
+        return newKey;
     }
-
 
     editRecipe(recipe: Recipe){
         let recipeJson = {

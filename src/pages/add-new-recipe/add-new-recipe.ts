@@ -29,7 +29,8 @@ constructor(public navCtrl: NavController, private recipesApi: RecipesApi, priva
       this.model.directions = this.convertToArray(this.model.directions);
       this.model.author = this.authorize.getCurrentUser().uid;
       this.assignIconToCategory();
-      this.recipesApi.postNewRecipe(this.model);
+      var recipeKey = this.recipesApi.postNewRecipe(this.model);
+      this.model.recipeKey = recipeKey;
       this.navCtrl.push(RecipeDetailViewPage, this.model);
   }
 
