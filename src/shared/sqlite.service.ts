@@ -58,24 +58,41 @@ export class SqliteService {
         .catch(e => console.log(e));
     }
 
-    checkIfExistFavorites(recipeKeyValue) {
-        var result;
-        this.sqlite.create({
+    checkIfExistFavorites(recipeKeyValue): any {
+        var result = {
+            favorite: false,
+            favoriteIcon: "heart-outline"
+        };
+
+        return this.sqlite.create({
         name: 'sweettooth.db',
         location: 'default'
         })
         .then((db: SQLiteObject) => {
-            var sql = "Select Count(*) from Favorites WHERE RecipeKey='"+recipeKeyValue+"'";
-            db.open();
-            db.executeSql(sql, {})
-            .then(function(data) { console.log('Finding count of Select query is ' + data.rows.item(0)['Count(*)']);
-                            result = parseInt(data.rows.item(0)['Count(*)']);    })
-           // .then(() => console.log('Executed Delete from SQL Key '+recipeKeyValue))
-            .catch(e => console.log(e));
-            })
-        .catch(e => console.log(e));
-
-        return result;
+          return  db.open().then(() => {
+                var sql = "Select Count(*) from Favorites WHERE RecipeKey='"+recipeKeyValue+"'";
+                return db.executeSql(sql, {})
+                    .then(function(data) { console.log('Finding count of Select query is ' + data.rows.item(0)['Count(*)']);
+                                    var count = parseInt(data.rows.item(0)['Count(*)']);
+                                    return count;})
+                        .then(function(res) {
+                            if(res > 0) { 
+                                console.log('Checking if Favorite >0');
+                                return result = {
+                                    favorite: true,
+                                    favoriteIcon: "heart"
+                                }
+                            }
+                            else { 
+                                console.log('Checking if Favorite not greather than 0');
+                                return result = {
+                                    favorite: false,
+                                    favoriteIcon: "heart-outline"
+                                }
+                            }
+                        })
+                    });                             
+            });
     }
 
 

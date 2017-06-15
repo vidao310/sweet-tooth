@@ -10,14 +10,16 @@ import { EditRecipePage, AllRecipesList } from '../pages';
 export class RecipeDetailViewPage {
 
   selectedRecipe: any;
-  favorite: any;
-  favoriteIcon: any;
+  favorite: boolean;
+  favoriteIcon: string;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, private authorize: AuthData, private recipeApi: RecipesApi, private sqlite: SqliteService) {
     this.selectedRecipe = this.navParams.data;
-    this.checkFavorite();
-    // this.favorite = true;
-    // this.favoriteIcon = "heart";
+    
+    this.checkFavorite().then(result => {
+      this.favorite = result.favorite;
+      this.favoriteIcon = result.favoriteIcon;
+    });
 }
 
   ionViewDidLoad() {
@@ -64,16 +66,8 @@ export class RecipeDetailViewPage {
 
   checkFavorite(){
     console.log('Check if Favorite exist');
-    var count = this.sqlite.checkIfExistFavorites(this.selectedRecipe.recipeKey);
-    //Unreachable code ?????
-    if(count > 0) { 
-      console.log('Checking if Favorite >0');
-      this.favorite = true;
-      this.favoriteIcon = "heart"; }
-    else { 
-      console.log('Checking if Favorite not greather than 0');
-      this.favorite = false;
-      this.favoriteIcon ="heart-outline"; }
+    return this.sqlite.checkIfExistFavorites(this.selectedRecipe.recipeKey);
+
   }
 
   editRecipe() {
