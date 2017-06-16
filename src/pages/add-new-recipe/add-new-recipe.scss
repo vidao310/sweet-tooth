@@ -1,5 +1,7 @@
 page-add-new-recipe {
     .text-box {
         border: 1px solid gray;
+        user-select: auto !important;
+        -webkit-user-select: auto !important;
     }
 }

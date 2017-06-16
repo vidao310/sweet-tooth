@@ -8,7 +8,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding overflow-scroll="true">
     <form (ngSubmit)="onSubmit()" #recipeForm="ngForm">
         <h3>Recipe Detail:</h3>
         <ion-list>
@@ -29,11 +29,14 @@
         </ion-list>
 
         <h3>Ingredients:</h3>
-        <ion-textarea rows="4" class="text-box" type="text " id="ingredients" [(ngModel)]="model.ingredients" name="ingredients" placeholder="Add ingredients"></ion-textarea>
+        <ion-item>
+            <ion-textarea rows="5" class="text-box" type="text " id="ingredients" [(ngModel)]="model.ingredients" name="ingredients" placeholder="Add ingredients"></ion-textarea>
+        </ion-item>
 
         <h3>Directions:</h3>
-        <ion-textarea rows="4" class="text-box" type="text " id="directions" [(ngModel)]="model.directions" name="directions" placeholder="Add steps"></ion-textarea>
-
+        <ion-item>
+            <ion-textarea rows="5" class="text-box" type="text " id="directions" [(ngModel)]="model.directions" name="directions" placeholder="Add steps"></ion-textarea>
+        </ion-item>
         <button ion-button type="button " (click)="recipeForm.reset() ">Reset</button>
 
         <button ion-button type="submit ">Submit</button>
