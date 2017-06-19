@@ -4,15 +4,15 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule} from '@angular/http';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 
-import { Camera } from '@ionic-native/camera';
-import { SQLite } from '@ionic-native/sqlite';
-
 import { MyApp } from './app.component';
 import { HomePage, AllRecipesList, AddNewRecipePage,RecipeDetailViewPage, EditRecipePage ,CookingDiaryPage, LoginPage, ResetPasswordPage, SignupPage, LogoutPage } from '../pages/pages';
-import { RecipesApi, AuthData, SqliteService } from '../shared/shared';
+import { RecipesApi, AuthData, SqliteService, GetPhotoLibrary } from '../shared/shared';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Camera } from '@ionic-native/camera';
+import { SQLite } from '@ionic-native/sqlite';
+import { PhotoLibrary } from '@ionic-native/photo-library';
 
 @NgModule({
   declarations: [
@@ -58,6 +58,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AuthData,
     StatusBar,
     SplashScreen,
+    GetPhotoLibrary,
+    PhotoLibrary,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
