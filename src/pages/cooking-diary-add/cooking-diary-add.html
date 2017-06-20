@@ -1,0 +1,38 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Add New Experience</ion-title>
+
+        <ion-buttons end>
+            <button type="submit" (click)="diaryForm.ngSubmit.emit()">Save</button>
+        </ion-buttons>
+
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <form (ngSubmit)="onSubmit()" #diaryForm="ngForm">
+        <ion-item>
+            <ion-label>
+                <h3>Date:</h3>
+            </ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY" min="2010" max="2020-12-31" [(ngModel)]="selectedDiary.date" name="date"></ion-datetime>
+        </ion-item>
+
+        <h3>Note</h3>
+        <ion-item>
+            <ion-textarea rows="5" class="text-box" type="text" [(ngModel)]="selectedDiary.note" name="note" placeholder="Add experience"></ion-textarea>
+        </ion-item>
+        <h3>
+            <ion-icon name="flask"></ion-icon> Photos:
+        </h3>
+        <button (click)="addPhotos()" name="photos">Add Photos</button>
+        <ion-list>
+            <ion-card *ngFor="let pic of selectedDiary.pictures">
+                <ion-img width="100%" [src]="pic"></ion-img>
+            </ion-card>
+        </ion-list>
+    </form>
+
+</ion-content>

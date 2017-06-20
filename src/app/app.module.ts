@@ -5,7 +5,7 @@ import { HttpModule} from '@angular/http';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 
 import { MyApp } from './app.component';
-import { HomePage, AllRecipesList, AddNewRecipePage,RecipeDetailViewPage, EditRecipePage ,CookingDiaryPage, CookingDiaryDetailPage ,LoginPage, ResetPasswordPage, SignupPage, LogoutPage } from '../pages/pages';
+import { HomePage, AllRecipesList, AddNewRecipePage,RecipeDetailViewPage, EditRecipePage ,CookingDiaryPage, CookingDiaryDetailPage, CookingDiaryAddPage ,LoginPage, ResetPasswordPage, SignupPage, LogoutPage } from '../pages/pages';
 import { RecipesApi, AuthData, SqliteService, GetPhotoLibrary } from '../shared/shared';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -13,7 +13,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
 import { SQLite } from '@ionic-native/sqlite';
 import { PhotoLibrary } from '@ionic-native/photo-library';
-import { ImagePicker } from '@ionic-native/image-picker'
+import { ImagePicker } from '@ionic-native/image-picker';
+import { DatePicker } from '@ionic-native/date-picker';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ImagePicker } from '@ionic-native/image-picker'
     EditRecipePage,
     CookingDiaryPage,
     CookingDiaryDetailPage,
+    CookingDiaryAddPage,
     LoginPage,
     ResetPasswordPage,
     SignupPage,
@@ -48,6 +50,7 @@ import { ImagePicker } from '@ionic-native/image-picker'
     EditRecipePage,
     CookingDiaryPage,
     CookingDiaryDetailPage,
+    CookingDiaryAddPage,
     LoginPage,
     ResetPasswordPage,
     SignupPage,
@@ -64,6 +67,7 @@ import { ImagePicker } from '@ionic-native/image-picker'
     GetPhotoLibrary,
     ImagePicker,
     PhotoLibrary,
+    DatePicker,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

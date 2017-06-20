@@ -4,6 +4,7 @@ export * from './recipe-detail-view/recipe-detail-view';
 export * from './add-new-recipe/add-new-recipe';
 export * from './cooking-diary/cooking-diary';
 export * from './cooking-diary-detail/cooking-diary-detail';
+export * from './cooking-diary-add/cooking-diary-add';
 export * from './edit-recipe/edit-recipe';
 export * from './login/login';
 export * from './resetpassword/resetpassword';

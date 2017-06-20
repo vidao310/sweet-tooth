@@ -3,16 +3,27 @@ import { NavController, NavParams } from 'ionic-angular';
 import { DatePicker } from '@ionic-native/date-picker'
 
 @Component({
-  selector: 'page-cooking-diary-detail',
-  templateUrl: 'cooking-diary-detail.html',
+  selector: 'page-cooking-diary-add',
+  templateUrl: 'cooking-diary-add.html',
 })
-export class CookingDiaryDetailPage {
+export class CookingDiaryAddPage {
 selectedDiary: any;
 
   constructor(public navCtrl: NavController, public navParam: NavParams, private datePicker : DatePicker) {
     this.selectedDiary = this.navParam.data;
     this.selectedDiary.date = new Date().toISOString();
   }
+
+ submitted = false;
+
+  onSubmit() { 
+      this.submitted = true; 
+      console.log("Submit the new diary"+this.selectedDiary.note);
+      this.selectedDiary.date = this.selectedDiary.date;
+      this.selectedDiary.note = this.selectedDiary.note;
+     
+  }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CookingDiaryDetailPage');
