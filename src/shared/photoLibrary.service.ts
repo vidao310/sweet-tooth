@@ -15,10 +15,8 @@ pickPhoto() {
             quality: 75
         }
 
-    this.imagePicker.getPictures(options).then((results) => {
-        for (var i = 0; i < results.length; i++) {
-            console.log('Image URI: ' + results[i]);
-        }
+    return this.imagePicker.getPictures(options).then((results) => {
+            return results;
         }, (err) => { 
             console.log('Error picking many images');
         });

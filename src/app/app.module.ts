@@ -5,7 +5,7 @@ import { HttpModule} from '@angular/http';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 
 import { MyApp } from './app.component';
-import { HomePage, AllRecipesList, AddNewRecipePage,RecipeDetailViewPage, EditRecipePage ,CookingDiaryPage, LoginPage, ResetPasswordPage, SignupPage, LogoutPage } from '../pages/pages';
+import { HomePage, AllRecipesList, AddNewRecipePage,RecipeDetailViewPage, EditRecipePage ,CookingDiaryPage, CookingDiaryDetailPage ,LoginPage, ResetPasswordPage, SignupPage, LogoutPage } from '../pages/pages';
 import { RecipesApi, AuthData, SqliteService, GetPhotoLibrary } from '../shared/shared';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -24,6 +24,7 @@ import { ImagePicker } from '@ionic-native/image-picker'
     RecipeDetailViewPage,
     EditRecipePage,
     CookingDiaryPage,
+    CookingDiaryDetailPage,
     LoginPage,
     ResetPasswordPage,
     SignupPage,
@@ -46,6 +47,7 @@ import { ImagePicker } from '@ionic-native/image-picker'
     RecipeDetailViewPage,
     EditRecipePage,
     CookingDiaryPage,
+    CookingDiaryDetailPage,
     LoginPage,
     ResetPasswordPage,
     SignupPage,
