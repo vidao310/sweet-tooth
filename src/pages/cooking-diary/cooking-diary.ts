@@ -8,7 +8,7 @@ import { GetPhotoLibrary } from './../../shared/shared';
 })
 export class CookingDiaryPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private getPhoto: GetPhotoLibrary) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private getPhotos: GetPhotoLibrary) {
   }
 
   ionViewDidLoad() {
@@ -17,6 +17,8 @@ export class CookingDiaryPage {
 
   addCookingExperiment() {
     console.log('Add New Experiment with Pictures, Notes, etc');
-    this.getPhoto.selectPhoto();
+    console.log('Debug Pick Many Photos');
+    this.getPhotos.pickPhoto();
   }
+
 }

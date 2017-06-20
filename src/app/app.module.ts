@@ -13,6 +13,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
 import { SQLite } from '@ionic-native/sqlite';
 import { PhotoLibrary } from '@ionic-native/photo-library';
+import { ImagePicker } from '@ionic-native/image-picker'
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { PhotoLibrary } from '@ionic-native/photo-library';
     StatusBar,
     SplashScreen,
     GetPhotoLibrary,
+    ImagePicker,
     PhotoLibrary,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
