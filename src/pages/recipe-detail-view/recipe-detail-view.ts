@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController } from 'ionic-angular';
 import { AuthData, RecipesApi, SqliteService } from '../../shared/shared'
 import { EditRecipePage, AllRecipesList } from '../pages';
+import { AlertController } from 'ionic-angular';
+
 
 @Component({
   selector: 'page-recipe-detail-view',
@@ -13,7 +15,13 @@ export class RecipeDetailViewPage {
   favorite: boolean;
   favoriteIcon: string;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, private authorize: AuthData, private recipeApi: RecipesApi, private sqlite: SqliteService) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              public viewCtrl: ViewController, 
+              private authorize: AuthData, 
+              private recipeApi: RecipesApi, 
+              private sqlite: SqliteService,
+              private alertCtrl: AlertController) {
     this.selectedRecipe = this.navParams.data;
     
     this.checkFavorite().then(result => {
@@ -77,10 +85,28 @@ export class RecipeDetailViewPage {
     this.navCtrl.push(EditRecipePage, this.selectedRecipe);
   }
 
-  deleteRecipe() {
-    console.log('Delete Recipe');
-    this.recipeApi.deleteRecipe(this.selectedRecipe).then(data => this.navCtrl.push(AllRecipesList));
-    
+   deleteRecipe() {
+    let confirm = this.alertCtrl.create({
+      title: 'Confirmation',
+      message: 'Are you sure you want to delete this recipe?',
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Delete',
+          handler: () => {
+            console.log('Delete confirm clicked');
+            console.log('Delete Recipe');
+            this.recipeApi.deleteRecipe(this.selectedRecipe).then(data => this.navCtrl.push(AllRecipesList));
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
 
 }

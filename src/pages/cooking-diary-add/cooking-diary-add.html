@@ -11,7 +11,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding overflow-scroll="true">
     <form (ngSubmit)="onSubmit()" #diaryForm="ngForm">
         <ion-item>
             <ion-label>
@@ -27,7 +27,7 @@
         <h3>
             <ion-icon name="flask"></ion-icon> Photos:
         </h3>
-        <button (click)="addPhotos()" name="photos">Add Photos</button>
+        <button ion-button (click)="addPhotos()" name="photos">Add Photos</button>
         <ion-list>
             <ion-card *ngFor="let pic of selectedDiary.pictures">
                 <ion-img width="100%" [src]="pic"></ion-img>

@@ -3,13 +3,16 @@
     <name>MyApp</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://172.30.16.8:8100" />
+    <content original-src="index.html" src="http://172.22.140.64:8100" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
     <allow-navigation href="http://192.168.55.117:8100" />
     <allow-navigation href="http://172.30.16.8:8100" />
     <allow-navigation href="http://172.17.169.234:8100" />
     <allow-navigation href="http://192.168.1.120:8100" />
+    <allow-navigation href="http://172.17.169.144:8100" />
+    <allow-navigation href="http://172.17.169.27:8100" />
+    <allow-navigation href="http://172.22.140.64:8100" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />

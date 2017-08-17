@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoadingController, NavController, NavParams } from 'ionic-angular';
+import { LoadingController, NavController, NavParams, ViewController } from 'ionic-angular';
 import { RecipesApi } from '../../shared/shared';
 import { RecipeDetailViewPage } from '../pages';
 import * as _ from 'lodash';
@@ -13,16 +13,20 @@ export class AllRecipesList {
   items: any;
   recipesCategories: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingController: LoadingController, private recipesApi: RecipesApi) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public loadingController: LoadingController, private recipesApi: RecipesApi) {
     this.selectedItem = navParams.get('item');
     this.items = [];
     this.recipesCategories = [];
+    
   }
 
   itemTapped(event, item) {
     this.navCtrl.push(RecipeDetailViewPage, item);
   }
-
+  
+  ionViewWillEnter(){
+    this.viewCtrl.showBackButton(false);
+  }
   ionViewDidLoad() {
     let loader = this.loadingController.create({
       content: "Baking..."
