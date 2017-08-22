@@ -1,5 +1,6 @@
 {
   "name": "sweet-tooth",
-  "app_id": "3d862437",
-  "type": "ionic-angular"
+  "app_id": "fa7d1634",
+  "type": "ionic-angular",
+  "integrations": {}
 }
