@@ -2,5 +2,7 @@
   "name": "sweet-tooth",
   "app_id": "fa7d1634",
   "type": "ionic-angular",
-  "integrations": {}
+  "integrations": {
+    "cordova": {}
+  }
 }
