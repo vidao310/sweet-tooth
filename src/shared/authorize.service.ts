@@ -6,11 +6,11 @@ export class AuthData {
   constructor() {}
 
 
-  loginUser(email: string, password: string): firebase.Promise<any> {
+  loginUser(email: string, password: string) {
     return firebase.auth().signInWithEmailAndPassword(email, password);
 }
 
-signupUser(email: string, password: string): firebase.Promise<any> {
+signupUser(email: string, password: string) {
     return firebase.auth().createUserWithEmailAndPassword(email, password)
     .then( newUser => {
         firebase.database().ref('/userProfile').child(newUser.uid)
@@ -18,11 +18,11 @@ signupUser(email: string, password: string): firebase.Promise<any> {
   });
 }
 
-resetPassword(email: string): firebase.Promise<void> {
+resetPassword(email: string) {
   return firebase.auth().sendPasswordResetEmail(email);
 }
 
-logoutUser(): firebase.Promise<void> {
+logoutUser() {
   return firebase.auth().signOut();
 }
 
