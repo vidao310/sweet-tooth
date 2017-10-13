@@ -111,7 +111,6 @@ export class RecipeDetailViewPage {
 
   customBackToAllRecipes()
   {
-      alert('cowabonga');
       this.navCtrl.push(AllRecipesList);  // remember to put this to add the back button behavior
   }
 }
