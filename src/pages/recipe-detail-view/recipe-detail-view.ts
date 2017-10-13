@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { LoadingController, NavController, NavParams, ViewController } from 'ionic-angular';
 import { AuthData, RecipesApi, SqliteService } from '../../shared/shared'
 import { EditRecipePage, AllRecipesList } from '../pages';
 import { AlertController } from 'ionic-angular';
@@ -21,7 +21,8 @@ export class RecipeDetailViewPage {
               private authorize: AuthData, 
               private recipeApi: RecipesApi, 
               private sqlite: SqliteService,
-              private alertCtrl: AlertController) {
+              private alertCtrl: AlertController,
+              public loadingController: LoadingController) {
     this.selectedRecipe = this.navParams.data;
     
     this.checkFavorite().then(result => {
@@ -30,8 +31,17 @@ export class RecipeDetailViewPage {
     });
 }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RecipeDetailViewPage');
+  ionViewWillEnter() {
+    console.log('ionViewWillEnter RecipeDetailViewPage');
+
+    let loader = this.loadingController.create({
+      content: "Baking..."
+    });
+
+    loader.present().then(() => { 
+      console.log("loading test to get author name");
+      this.selectedRecipe.authorDisplayName = this.recipeApi.getCurrentAuthorName(this.selectedRecipe.author);
+    }).then(()=> {loader.dismiss();});
   }
 
   ionviewDidLeave() {

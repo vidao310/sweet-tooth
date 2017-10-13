@@ -21,12 +21,13 @@ export class AllRecipesList {
   }
 
   itemTapped(event, item) {
-    this.navCtrl.push(RecipeDetailViewPage, item);
+      this.navCtrl.push(RecipeDetailViewPage, item);
   }
-  
+    
   ionViewWillEnter(){
     this.viewCtrl.showBackButton(false);
   }
+
   ionViewDidLoad() {
     let loader = this.loadingController.create({
       content: "Baking..."
@@ -44,8 +45,8 @@ export class AllRecipesList {
               directions: data[i].directions,
               author: data[i].author,
               recipeKey: data[i].recipeKey
-              
-            })
+              })
+              this.recipesApi.getCurrentAuthorName(data[i].author);
 
             console.log('Getting API data author '+ data[i].author);
           };
