@@ -3,7 +3,7 @@
     <ion-navbar hideBackButton>
         <ion-buttons left>
             <button ion-button (click)="customBackToAllRecipes()">
-                <ion-icon class="customIcon" name="arrow-back"></ion-icon>
+                <ion-icon class="customIcon" name="arrow-back"></ion-icon> Back
             </button>
         </ion-buttons>
         <ion-title>{{selectedRecipe.title}}</ion-title>
@@ -24,7 +24,7 @@
 
     <div class="ingredients">
         <h5>Shared by:</h5>
-        <div>{{selectedRecipe.author}}</div>
+        <div>{{selectedRecipe.authorDisplayName}}</div>
         <h5>Note:</h5>
         <div>{{selectedRecipe.note}}</div>
         <h5>Category:</h5>

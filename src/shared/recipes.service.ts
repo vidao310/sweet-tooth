@@ -27,6 +27,17 @@ export class RecipesApi{
         })
     }
 
+    getCurrentAuthorName(authorKey) {
+        var name;
+        var ref = firebase.database().ref('/userProfile/'+authorKey+'/displayName');
+        ref.on("value", function(snapshot) {
+            name = snapshot.val();
+          }, function (errorObject) {
+            console.log("The read failed: " + errorObject.code);
+          });
+        return name;
+    } 
+
     postNewRecipe(recipe: Recipe) {
         let recipeJson = {
                 "title": recipe.title,
