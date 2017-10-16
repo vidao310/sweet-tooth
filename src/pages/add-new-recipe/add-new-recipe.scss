@@ -1,7 +1,9 @@
 page-add-new-recipe {
     .text-box {
-        border: 1px solid gray;
         user-select: auto !important;
         -webkit-user-select: auto !important;
+    }
+    .textbox-background {
+        background-color: rgba(white, 0.5);
     }
 }

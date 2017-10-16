@@ -3,24 +3,24 @@
         <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-        <ion-title>Add New Recipe</ion-title>
+        <ion-title class="nav-background">Add New Recipe</ion-title>
     </ion-navbar>
 </ion-header>
 
 
-<ion-content padding overflow-scroll="true">
+<ion-content padding overflow-scroll="true" class="content-background">
     <form (ngSubmit)="onSubmit()" #recipeForm="ngForm">
         <h3>Recipe Detail:</h3>
         <ion-list>
-            <ion-item>
+            <ion-item class="textbox-background">
                 <ion-label>Name</ion-label>
                 <ion-input type="text" id="title" required [(ngModel)]="model.title" name="title" maxlength="30"></ion-input>
             </ion-item>
-            <ion-item>
+            <ion-item class="textbox-background">
                 <ion-label>Note</ion-label>
                 <ion-input type="text" id="note" [(ngModel)]="model.note" name="note" maxlength="20"></ion-input>
             </ion-item>
-            <ion-item>
+            <ion-item class="textbox-background">
                 <ion-label>Category</ion-label>
                 <ion-select interface="popover" id="category" required [(ngModel)]="model.category" name="category" placeholder="Select">
                     <ion-option *ngFor="let categ of categories " [value]="categ ">{{categ}}</ion-option>
@@ -29,12 +29,12 @@
         </ion-list>
 
         <h3>Ingredients:</h3>
-        <ion-item>
+        <ion-item class="textbox-background">
             <ion-textarea rows="5" class="text-box" type="text " id="ingredients" [(ngModel)]="model.ingredients" name="ingredients" placeholder="Add ingredients"></ion-textarea>
         </ion-item>
 
         <h3>Directions:</h3>
-        <ion-item>
+        <ion-item class="textbox-background">
             <ion-textarea rows="5" class="text-box" type="text " id="directions" [(ngModel)]="model.directions" name="directions" placeholder="Add steps"></ion-textarea>
         </ion-item>
         <button ion-button type="button " (click)="recipeForm.reset() ">Reset</button>

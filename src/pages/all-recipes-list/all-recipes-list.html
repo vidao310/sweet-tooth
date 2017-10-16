@@ -1,15 +1,15 @@
 <ion-header>
     <ion-toolbar>
         <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
-        <ion-title>All Recipes</ion-title>
+        <ion-title class="nav-background">All Recipes</ion-title>
     </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="content-background">
     <ion-list>
         <ion-item-group *ngFor="let r of recipesCategories">
-            <ion-item-divider>{{r.categoryName}}</ion-item-divider>
-            <button ion-item *ngFor="let item of r.categoryRecipes" (click)="itemTapped($event, item)">
+            <ion-item-divider class="list-header">{{r.categoryName}}</ion-item-divider>
+            <button ion-item *ngFor="let item of r.categoryRecipes" (click)="itemTapped($event, item)" class="list-item">
             <ion-icon [name]="item.icon" item-left></ion-icon>
             {{item.title}}
             <div class="item-note" item-right>{{item.note}}</div>
