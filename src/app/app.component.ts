@@ -25,6 +25,13 @@ export class MyApp {
     this.initializeApp();
     this.zone = new NgZone({});
 
+    var allPages: Array<{title: string, component: any}>;
+    allPages = [
+      { title: 'Home', component: HomePage },
+      { title: 'All Recipes', component: AllRecipesList },
+      { title: 'Cooking Diary', component: CookingDiaryPage},
+      { title: 'Log Out', component: LogoutPage}];
+
     firebase.initializeApp({
     apiKey: "AIzaSyByNkLFGRpkwdJF9ncmv2NaRDZynrqSkUg",
     authDomain: "sweeth-tooth.firebaseapp.com",
@@ -35,6 +42,9 @@ export class MyApp {
   });
 
   const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+    if (firebase.auth().currentUser.email == "vingocdao@gmail.com") {
+      allPages.push({ title: 'Add New Recipe', component: AddNewRecipePage });
+    }
   this.zone.run( () => {
     if (!user) {
       this.rootPage = LoginPage;
@@ -42,23 +52,20 @@ export class MyApp {
     } else { 
       this.rootPage = HomePage;
       unsubscribe();
+      
     }
+    
   });     
 });
 
 
-
-
-    // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'All Recipes', component: AllRecipesList },
-      { title: 'Add New Recipe', component: AddNewRecipePage },
-      { title: 'Cooking Diary', component: CookingDiaryPage},
-      { title: 'Log Out', component: LogoutPage}
-
-    ];
-
+  this.pages = allPages;
+// this.pages = [
+//   { title: 'Home', component: HomePage },
+//   { title: 'All Recipes', component: AllRecipesList },
+//   { title: 'Cooking Diary', component: CookingDiaryPage},
+//   { title: 'Log Out', component: LogoutPage}
+// ];
   }
 
   initializeApp() {
