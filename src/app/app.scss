@@ -13,17 +13,21 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 .content-background {
-    background-color: #FFDAE1;
+    background-color: rgb(255, 233, 242);
 }
 
 .nav-background {
-    background-color: #D0D0D0;
+    background-color: rgb(255, 140, 196);
 }
 
 .list-item {
     background-color: rgba(white, 0.5);
 }
 
+// all-recipes-list
 .list-header {
-    background-color: #FFDAE1;
+    background-color: rgb(255, 185, 220);
+    color: black;
+    font-size: 18px;
+    text-align: center;
 }
